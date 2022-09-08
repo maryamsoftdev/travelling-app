@@ -29,7 +29,17 @@
         transform: rotateY(180deg);
 
         &-1{
-             background-image: linear-gradiant(to right bottom,$color-secondary-light, $color-secondary-dark);
+             background-image: linear-gradient(to right bottom,$color-secondary-light, $color-secondary-dark);
+
+
+        }
+        &-2{
+             background-image: linear-gradient(to right bottom,$color-primary-dark, $color-primary-light);
+
+
+        }
+        &-3{
+             background-image: linear-gradient(to right bottom,$color-tertiary-dark, $color-tertiary-light);
 
 
         }
@@ -55,19 +65,19 @@
    -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
       &--1{
-         background-image: url('../img/nat-5.jpg');
-         // background-image: url('../img/nat-5.jpg'), linear-gradiant(to right bottom, $color-secondary-light, $color-secondary-dark);
+         // background-image: url('../img/nat-5.jpg');
+         background-image: url('../img/nat-5.jpg'), linear-gradient(to right bottom, $color-secondary-light, $color-secondary-dark);
 
 
       }
       &--2{
-         background-image: url(../img/nat-5.img);
+         background-image: url('../img/nat-6.jpg'), linear-gradient(to right bottom, $color-primary-dark, $color-primary-light);
 
 
       }
       &--3{
-        background-image: url(../img/nat-5.img);
-
+        background-image: url('../img/nat-7.jpg'), linear-gradient(to right bottom, $color-tertiary-dark, $color-tertiary-light);
+      // background-image: url('../img/nat-6.jpg'), linear-gradient(to right bottom, $color-secondary-light, $color-secondary-dark);
 
       }
       

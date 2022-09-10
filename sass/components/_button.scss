@@ -27,6 +27,17 @@
         }
 
     }
+    &--green {
+        background-color: $color-primary;
+        color: $color-white;
+
+        &::after {
+            background-color: $color-white;
+
+
+        }
+
+    }
 
     &:hover {
         transform: translateY(-3px);

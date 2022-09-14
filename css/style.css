@@ -513,7 +513,12 @@ body {
     text-align: center; }
 
 .footer {
-  background-color: #000; }
+  background-color: #333;
+  padding: 10rem 0;
+  font-size: 1.4rem; }
+  .footer__logo-box {
+    width: 15rem;
+    height: auto; }
 
 .section-about {
   background-color: #f7f7f7;

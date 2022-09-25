@@ -11,7 +11,7 @@ html {
     font-size: 62.5%;  //1rem =10px; 10px/16px = 62.5%
     // this define what one rem should be
   
-    
+    //larger to lower order
    
     @include respond(tab-land){
        
@@ -29,4 +29,8 @@ html {
 
 body {
     box-sizing: border-box;
+    padding: 3rem;
+    @include respond(tab-port) {
+           padding: 0;
+        }
 }

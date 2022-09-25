@@ -30,6 +30,9 @@ $breakpoint argument choices:
 -big-desktop
 
  as 1em=16px
+
+ Order: Base + typography  > general layout >page layout > components
+
 */
 
 @mixin respond($breakpoint){

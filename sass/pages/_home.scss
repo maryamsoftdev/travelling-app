@@ -6,6 +6,10 @@ margin-top: -20vh;
     padding: 20rem 0;
 
  }
+ @include respond(phone){
+    padding: 20rem 0;
+
+ }
 }
 .section-features{
 padding: 20rem 0;

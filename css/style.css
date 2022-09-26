@@ -258,6 +258,7 @@ body {
     top: 0;
     left: 0;
     width: 100%;
+    -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
     border-radius: 3px;
     overflow: hidden;
@@ -545,12 +546,14 @@ body {
     transform: translateX(-3rem) skewX(12deg);
     position: relative;
     overflow: hidden;
-    border-radius: 50%;
-    -webkit-clip-path: circle(50% at 50% 50%);
-    clip-path: circle(50% at 50% 50%);
-    -webkit-shape-outside: circle(50% at 50% 50%);
-    shape-outside: circle(50% at 50% 50%);
-    border-radius: none; }
+    border-radius: 50%; }
+    @supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)) {
+      .story__shape {
+        -webkit-clip-path: circle(50% at 50% 50%);
+        clip-path: circle(50% at 50% 50%);
+        -webkit-shape-outside: circle(50% at 50% 50%);
+        shape-outside: circle(50% at 50% 50%);
+        border-radius: none; } }
     @media (max-width: 37.5em) {
       .story__shape {
         transform: translateX(-3rem) skewX(0); } }
@@ -590,17 +593,21 @@ body {
   top: 0;
   left: 0;
   background-color: rgba(0, 0, 0, 0.8);
-  z-index: 9000;
+  z-index: 9999;
   opacity: 0;
   visibility: hidden;
   transition: all .3s; }
+  @supports (-webkit-backdrop-filter: blur(10px)) or (backdrop-filter: blur(10px)) {
+    .popup {
+      -webkit-backdrop-filter: blur(10px);
+      backdrop-filter: blur(10px);
+      background-color: rgba(0, 0, 0, 0.3); } }
   .popup__content {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 75%;
-    height: 50rem;
     background-color: #ffffff;
     box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.2);
     border-radius: 3px;
@@ -608,12 +615,12 @@ body {
     overflow: hidden;
     opacity: 0;
     transform: translate(-50%, -50%) scale(0.25);
-    transition: all .4S .2S; }
+    transition: all .5s .2s; }
   .popup__left {
-    width: 33.33333%;
+    width: 33.333333%;
     display: table-cell; }
   .popup__right {
-    width: 66.6666%;
+    width: 66.6666667%;
     display: table-cell;
     vertical-align: middle;
     padding: 3rem 5rem; }
@@ -625,10 +632,10 @@ body {
     margin-bottom: 4rem;
     -moz-column-count: 2;
     -moz-column-gap: 4rem;
-    -moz-column-rule: 1rem solid #eee;
+    -moz-column-rule: 1px solid #eee;
     column-count: 2;
     column-gap: 4rem;
-    column-rule: 1rem solid #eee;
+    column-rule: 1px solid #eee;
     -moz-hyphens: auto;
     -ms-hyphens: auto;
     -webkit-hyphens: auto;
@@ -648,7 +655,7 @@ body {
     text-decoration: none;
     display: inline-block;
     transition: all .2s;
-    line-height: 1rem; }
+    line-height: 1; }
   .popup__close:hover {
     color: #55c57a; }
 
@@ -820,13 +827,19 @@ body {
     width: calc(3*((100% - 3 * 6rem)/4) + 2 * 6rem); }
 
 .header {
-  height: 95vh;
-  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url(../img/hero.jpg);
+  height: 85vh;
+  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url(../img/hero-small.jpg);
   background-size: cover;
   background-position: top;
-  -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
-  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
   position: relative; }
+  @supports (clip-path: polygon(0 0)) {
+    .header {
+      -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+      clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+      height: 95vh; } }
+  @media (min-resoltion: 192dpi) and (min-width: 37.5em), (-webkit-min-device-pixel-ratio: 2) and (min-width: 37.5em), (min-width: 125em) {
+    .header {
+      background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url(../img/hero.jpg); } }
   @media (max-width: 37.5em) {
     .header {
       -webkit-clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
@@ -904,6 +917,9 @@ body {
   padding: 25rem 0;
   margin-top: -20vh; }
   @media (max-width: 56.25em) {
+    .section-about {
+      padding: 20rem 0; } }
+  @media (max-width: 37.5em) {
     .section-about {
       padding: 20rem 0; } }
 
